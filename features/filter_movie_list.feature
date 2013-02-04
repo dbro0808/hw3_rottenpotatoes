@@ -36,7 +36,9 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
     And I should not see "The Help"
 
 Scenario: no ratings selected
-  When I uncheck the following ratings: G, PG, PG-13, R
+  When I check the following ratings: G, PG, PG-13, R
+    And I press "Refresh"
+    And I uncheck the following ratings: G, PG, PG-13, R
     And I press "Refresh"
   Then I should see all of the movies
 
